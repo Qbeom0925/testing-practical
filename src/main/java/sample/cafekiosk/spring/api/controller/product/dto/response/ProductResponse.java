@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring.api.service.product.response;
+package sample.cafekiosk.spring.api.controller.product.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,8 +10,8 @@ import sample.cafekiosk.spring.domain.product.ProductType;
 public class ProductResponse {
     private Long id;
     private String productNumber;
-    private ProductType type;
-    private ProductSellingStatus sellingType;
+    private ProductType productType;
+    private ProductSellingStatus sellingStatus;
     private String name;
     private int price;
 
@@ -19,8 +19,8 @@ public class ProductResponse {
     private ProductResponse(Long id, String productNumber, ProductType type, ProductSellingStatus sellingType, String name, int price) {
         this.id = id;
         this.productNumber = productNumber;
-        this.type = type;
-        this.sellingType = sellingType;
+        this.productType = type;
+        this.sellingStatus = sellingType;
         this.name = name;
         this.price = price;
     }
@@ -29,7 +29,7 @@ public class ProductResponse {
         return ProductResponse.builder()
                 .id(product.getId())
                 .productNumber(product.getProductNumber())
-                .type(product.getType())
+                .type(product.getProductType())
                 .sellingType(product.getSellingStatus())
                 .name(product.getName())
                 .price(product.getPrice())

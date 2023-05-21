@@ -61,7 +61,7 @@ public class OrderTest {
 
     private Product createProduct(String productNumber, int price) {
         return Product.builder()
-                .type(ProductType.HANDMADE)
+                .productType(ProductType.HANDMADE)
                 .productNumber(productNumber)
                 .price(price)
                 .sellingStatus(ProductSellingStatus.SELLING)

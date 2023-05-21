@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring.api.controller.order.request;
+package sample.cafekiosk.spring.api.service.order.request;
 
 import lombok.Builder;
 import lombok.Getter;
