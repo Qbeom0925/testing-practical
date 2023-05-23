@@ -4,9 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import sample.cafekiosk.spring.api.service.order.request.OrderCreateRequest;
+import sample.cafekiosk.spring.api.ApiResponse;
+import sample.cafekiosk.spring.api.service.order.OrderService;
+import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
 import sample.cafekiosk.spring.api.controller.order.reseponse.OrderResponse;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
@@ -16,10 +19,9 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/api/v1/orders/new")
-    public OrderResponse createOrder(@RequestBody OrderCreateRequest request) {
+    public ApiResponse<OrderResponse> createOrder(@RequestBody @Valid OrderCreateRequest request) {
         LocalDateTime registeredDateTime = LocalDateTime.now();
-        OrderResponse order = orderService.createOrder(request, registeredDateTime);
-        return order;
+        return ApiResponse.ok(orderService.createOrder(request.toServiceRequest(), registeredDateTime));
     }
 
 }

@@ -1,9 +1,9 @@
-package sample.cafekiosk.spring.api.controller.product.dto.request;
+package sample.cafekiosk.spring.api.service.product.request;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import sample.cafekiosk.spring.api.service.product.request.ProductCreateServiceRequest;
+import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
@@ -12,21 +12,16 @@ import javax.validation.constraints.Positive;
 
 @Getter
 @NoArgsConstructor
-public class ProductCreateRequest {
+public class ProductCreateServiceRequest {
 
-    @NotNull(message = "상품번호는 필수입니다.")
     private String productNumber;
-    @NotNull(message = "상품타입은 필수입니다.")
     private ProductType productType;
-    @NotNull(message = "판매상태는 필수입니다.")
     private ProductSellingStatus sellingStatus;
-    @NotNull(message = "상품명은 필수입니다.")
     private String name;
-    @Positive(message = "상품가격은 0보다 커야합니다.")
     private int price;
 
     @Builder
-    public ProductCreateRequest(String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
+    public ProductCreateServiceRequest(String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
         this.productNumber = productNumber;
         this.productType = productType;
         this.sellingStatus = sellingStatus;
@@ -34,8 +29,9 @@ public class ProductCreateRequest {
         this.price = price;
     }
 
-    public ProductCreateServiceRequest toServiceRequest() {
-        return ProductCreateServiceRequest.builder()
+    public Product toEntity(String nextProductNumber) {
+        return Product.builder()
+                .productNumber(nextProductNumber)
                 .productType(productType)
                 .sellingStatus(sellingStatus)
                 .name(name)

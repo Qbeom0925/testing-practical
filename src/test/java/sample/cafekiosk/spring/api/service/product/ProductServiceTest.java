@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import sample.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
 import sample.cafekiosk.spring.api.controller.product.dto.response.ProductResponse;
+import sample.cafekiosk.spring.api.service.product.request.ProductCreateServiceRequest;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRepository;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
@@ -42,7 +43,7 @@ class ProductServiceTest {
         //given
         Product product1 = createProduct("001", SELLING, HANDMADE, "아메리카노", 4000);
         productRepository.save(product1);
-        ProductCreateRequest request = ProductCreateRequest.builder()
+        ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
                 .sellingStatus(SELLING)
                 .productType(HANDMADE)
                 .name("카푸치노")
@@ -69,7 +70,7 @@ class ProductServiceTest {
      @Test
      public void createProduct(){
          //given
-         ProductCreateRequest request = ProductCreateRequest.builder()
+         ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
                  .productType(HANDMADE)
                  .sellingStatus(SELLING)
                  .name("카푸치노")
