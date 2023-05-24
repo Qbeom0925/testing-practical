@@ -23,6 +23,11 @@ public class MailService {
                     .toEmail(toEmail)
                     .subject(subject)
                     .build());
+
+            mailSendClient.a();
+            mailSendClient.b();
+            mailSendClient.c();
+
             return true;
         }
         return false;
