@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import sample.cafekiosk.spring.BaseEntity;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 import sample.cafekiosk.spring.api.controller.product.dto.response.ProductResponse;
 import sample.cafekiosk.spring.api.service.client.mail.MailSendClient;
 import sample.cafekiosk.spring.api.service.order.OrderStaticsService;
@@ -33,9 +34,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
-@ActiveProfiles("test")
-@SpringBootTest
-class OrderStaticsServiceTest {
+class OrderStaticsServiceTest extends IntegrationTestSupport {
 
     @Autowired
     OrderProductRepository orderProductRepository;
