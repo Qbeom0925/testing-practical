@@ -19,7 +19,7 @@ public class Product extends BaseEntity {
     private String productNumber;
 
     @Enumerated(EnumType.STRING)
-    private ProductType productType;
+    private ProductType type;
 
     @Enumerated(EnumType.STRING)
     private ProductSellingStatus sellingStatus;
@@ -29,9 +29,9 @@ public class Product extends BaseEntity {
 
 
     @Builder
-    public Product(String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
+    public Product(String productNumber, ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
         this.productNumber = productNumber;
-        this.productType = productType;
+        this.type = type;
         this.sellingStatus = sellingStatus;
         this.name = name;
         this.price = price;

@@ -34,7 +34,6 @@ class ProductControllerTest extends ControllerTestSupport{
     public void createProductNotNull() throws Exception{
         //given
         ProductCreateRequest request = ProductCreateRequest.builder()
-                .productNumber("001")
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("아메리카노")
                 .price(4000)
@@ -58,9 +57,8 @@ class ProductControllerTest extends ControllerTestSupport{
     public void createProduct() throws Exception{
         //given
         ProductCreateRequest request = ProductCreateRequest.builder()
-                .productNumber("001")
                 .sellingStatus(ProductSellingStatus.SELLING)
-                .productType(ProductType.HANDMADE)
+                .type(ProductType.HANDMADE)
                 .name("아메리카노")
                 .price(4000)
                 .build();
@@ -79,8 +77,7 @@ class ProductControllerTest extends ControllerTestSupport{
     public void createProductNotNullStatus() throws Exception{
         //given
         ProductCreateRequest request = ProductCreateRequest.builder()
-                .productNumber("001")
-                .productType(ProductType.HANDMADE)
+                .type(ProductType.HANDMADE)
                 .name("아메리카노")
                 .price(4000)
                 .build();
@@ -103,8 +100,7 @@ class ProductControllerTest extends ControllerTestSupport{
     public void createProductNotNullName() throws Exception{
         //given
         ProductCreateRequest request = ProductCreateRequest.builder()
-                .productNumber("001")
-                .productType(ProductType.HANDMADE)
+                .type(ProductType.HANDMADE)
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .price(4000)
                 .build();
@@ -127,8 +123,7 @@ class ProductControllerTest extends ControllerTestSupport{
     public void createProductNotNullPrice() throws Exception{
         //given
         ProductCreateRequest request = ProductCreateRequest.builder()
-                .productNumber("001")
-                .productType(ProductType.HANDMADE)
+                .type(ProductType.HANDMADE)
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("아메리카노")
                 .price(0)

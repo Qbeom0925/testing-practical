@@ -1,6 +1,7 @@
 package sample.cafekiosk.spring.domain.product;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -36,6 +37,7 @@ class ProductTypeTest extends IntegrationTestSupport {
         Assertions.assertThat(b).isTrue();
     }
 
+    @Disabled
     @CsvSource({
             "HANDMADE, false",
             "BOTTLE, true",

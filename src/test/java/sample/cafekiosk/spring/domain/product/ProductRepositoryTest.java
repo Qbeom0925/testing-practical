@@ -1,6 +1,7 @@
 package sample.cafekiosk.spring.domain.product;
 
 import org.assertj.core.groups.Tuple;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ public class ProductRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @AfterEach
+    void tearDown() {
+        productRepository.deleteAllInBatch();
+    }
 
     @DisplayName("원하는 판매상태를 가진 상품들을 조회한다.")
     @Test
@@ -91,7 +97,7 @@ public class ProductRepositoryTest extends IntegrationTestSupport {
     private Product createProduct(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
         return Product.builder()
                 .productNumber(productNumber)
-                .productType(ProductType.HANDMADE)
+                .type(ProductType.HANDMADE)
                 .sellingStatus(sellingStatus)
                 .name(name)
                 .price(price)

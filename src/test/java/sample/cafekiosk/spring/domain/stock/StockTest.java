@@ -53,7 +53,7 @@ class StockTest extends IntegrationTestSupport {
         //when then
         assertThatThrownBy(() -> stock.deductQuantity(quantity))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("차감할 재고 수량이 부족합니다.");
+                .hasMessage("차감할 재고 수량이 없습니다.");
     }
 
     @DisplayName("재고 차감 시나리오")

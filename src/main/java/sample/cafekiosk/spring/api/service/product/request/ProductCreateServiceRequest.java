@@ -7,23 +7,18 @@ import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-
 @Getter
 @NoArgsConstructor
 public class ProductCreateServiceRequest {
 
-    private String productNumber;
-    private ProductType productType;
+    private ProductType type;
     private ProductSellingStatus sellingStatus;
     private String name;
     private int price;
 
     @Builder
-    public ProductCreateServiceRequest(String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
-        this.productNumber = productNumber;
-        this.productType = productType;
+    public ProductCreateServiceRequest(ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
+        this.type = type;
         this.sellingStatus = sellingStatus;
         this.name = name;
         this.price = price;
@@ -32,7 +27,7 @@ public class ProductCreateServiceRequest {
     public Product toEntity(String nextProductNumber) {
         return Product.builder()
                 .productNumber(nextProductNumber)
-                .productType(productType)
+                .type(type)
                 .sellingStatus(sellingStatus)
                 .name(name)
                 .price(price)

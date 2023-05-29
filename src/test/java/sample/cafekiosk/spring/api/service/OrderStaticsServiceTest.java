@@ -106,7 +106,7 @@ class OrderStaticsServiceTest extends IntegrationTestSupport {
     private Product createProduct(String productNumber, ProductType productType, int price) {
         return Product.builder()
                 .productNumber(productNumber)
-                .productType(productType)
+                .type(productType)
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("메뉴 이름")
                 .price(price)

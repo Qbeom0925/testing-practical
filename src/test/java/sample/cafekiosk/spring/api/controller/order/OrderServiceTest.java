@@ -184,7 +184,7 @@ class OrderServiceTest {
 
     private Product createProduct(ProductType type, String productNumber, int price) {
         return Product.builder()
-                .productType(type)
+                .type(type)
                 .productNumber(productNumber)
                 .price(price)
                 .sellingStatus(ProductSellingStatus.SELLING)

@@ -25,16 +25,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 class OrderControllerTest extends ControllerTestSupport {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @MockBean
-    private OrderService orderService;
-
-
     @DisplayName("신규 상품을 등록한다.")
     @Test
     public void createOrder() throws Exception{
